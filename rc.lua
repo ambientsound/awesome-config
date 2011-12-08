@@ -55,20 +55,32 @@ end
 
 -- {{{ Wibox
 -- Create a textclock widget
---mytextclock = awful.widget.textclock({ align = "right" })
+spacer = awful.widget.textclock({ align = "right" }, " | ", 0)
+textdate = awful.widget.textclock({ align = "right" }, " %a %d %b %Y ", 1)
+textclock = awful.widget.textclock({ align = "right" }, " %H:%M:%S   ", 1)
+textclock.color = beautiful.fg_bright
 
 -- Create a systray
---mysystray = widget({ type = "systray" })
+systray = widget({ type = "systray" })
+
+-- Create a battery icon
+textbat = widget({ type = "textbox" })
+vicious.register(textbat, vicious.widgets.bat, " $2% ", 60, "BAT0")
 
 -- Create a wibox for each screen and add it
---mywibox = {}
---for s = 1, screen.count() do
-    --mywibox[s].widgets = {
-        --mytextclock,
-        --s == 1 and mysystray or nil,
-        --layout = awful.widget.layout.horizontal.rightleft
-    --}
---end
+wibox = {}
+for s = 1, screen.count() do
+    wibox[s] = awful.wibox({ position = "bottom", screen = s })
+    wibox[s].widgets = {
+        systray,
+        textclock,
+        spacer,
+        textdate,
+        spacer,
+        textbat,
+        layout = awful.widget.layout.horizontal.rightleft
+    }
+end
 -- }}}
 
 
