@@ -74,101 +74,101 @@ end
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-	
-	-- Move CDROM in and out
-	awful.key({ modkey, "Control"	}, "KP_Add",		function () awful.util.spawn("eject") end),
-	awful.key({ modkey, "Control"	}, "KP_Subtract",	function () awful.util.spawn("eject -t") end),
+    
+    -- Move CDROM in and out
+    awful.key({ modkey, "Control"   }, "KP_Add",        function () awful.util.spawn("eject") end),
+    awful.key({ modkey, "Control"   }, "KP_Subtract",   function () awful.util.spawn("eject -t") end),
 
-	-- dmenu
-	awful.key({ "Control"		}, " ",			function () awful.util.spawn("dmenu_run") end),
+    -- dmenu
+    awful.key({ "Control"       }, " ",         function () awful.util.spawn("dmenu_run") end),
 
-	-- Tag movement
-	awful.key({ modkey		}, "Tab",		function () awful.screen.focus_relative(1) end),
-	awful.key({ altkey		}, "Escape",		awful.tag.history.restore),
-	awful.key({ modkey		}, "Left",		awful.tag.viewprev),
-	awful.key({ modkey		}, "Right",		awful.tag.viewnext),
+    -- Tag movement
+    awful.key({ modkey      }, "Tab",       function () awful.screen.focus_relative(1) end),
+    awful.key({ altkey      }, "Escape",        awful.tag.history.restore),
+    awful.key({ modkey      }, "Left",      awful.tag.viewprev),
+    awful.key({ modkey      }, "Right",     awful.tag.viewnext),
 
-	-- Standard program
-	awful.key({ 			}, "Print",		function () awful.util.spawn("scrot") end),
-	awful.key({ modkey		}, "Print",		function () awful.util.spawn("scrot -s") end),
-	awful.key({ modkey		}, "Return",	function () awful.util.spawn(terminal) end),
-	awful.key({ modkey		}, "l",			function () awful.util.spawn("xscreensaver-command -lock") end),
+    -- Standard program
+    awful.key({             }, "Print",     function () awful.util.spawn("scrot") end),
+    awful.key({ modkey      }, "Print",     function () awful.util.spawn("scrot -s") end),
+    awful.key({ modkey      }, "Return",    function () awful.util.spawn(terminal) end),
+    awful.key({ modkey      }, "l",         function () awful.util.spawn("xscreensaver-command -lock") end),
 
-	-- Awesome
-	awful.key({ modkey, "Shift" 	}, "r",			awesome.restart),
-	awful.key({ modkey, "Shift"	    }, "q",			awesome.quit),
+    -- Awesome
+    awful.key({ modkey, "Shift"     }, "r",         awesome.restart),
+    awful.key({ modkey, "Shift"     }, "q",         awesome.quit),
 
-	-- Cycle master/slave clients and switch between them
-	awful.key({ altkey		}, "Right",
-		function ()
-			awful.client.focus.bydirection("right")
-			if client.focus then client.focus:raise() end
-		end),
+    -- Cycle master/slave clients and switch between them
+    awful.key({ altkey      }, "Right",
+        function ()
+            awful.client.focus.bydirection("right")
+            if client.focus then client.focus:raise() end
+        end),
 
-	awful.key({ altkey 		}, "Left",
-		function ()
-			awful.client.focus.bydirection("left")
-			if client.focus then client.focus:raise() end
-		end),
+    awful.key({ altkey      }, "Left",
+        function ()
+            awful.client.focus.bydirection("left")
+            if client.focus then client.focus:raise() end
+        end),
 
-	awful.key({ altkey		}, "Up",
-		function ()
-			awful.client.focus.bydirection("up")
-			if client.focus then client.focus:raise() end
-		end),
+    awful.key({ altkey      }, "Up",
+        function ()
+            awful.client.focus.bydirection("up")
+            if client.focus then client.focus:raise() end
+        end),
 
-	awful.key({ altkey 		}, "Down",
-		function ()
-			awful.client.focus.bydirection("down")
-			if client.focus then client.focus:raise() end
-		end),
+    awful.key({ altkey      }, "Down",
+        function ()
+            awful.client.focus.bydirection("down")
+            if client.focus then client.focus:raise() end
+        end),
 
     -- Alt+Tab and Win+N cycles to the next window
-	awful.key({ altkey		}, "Tab",
-		function ()
-			awful.client.focus.byidx(1)
-			if client.focus then client.focus:raise() end
-		end),
+    awful.key({ altkey      }, "Tab",
+        function ()
+            awful.client.focus.byidx(1)
+            if client.focus then client.focus:raise() end
+        end),
 
-	awful.key({ modkey      }, "n",
-		function ()
-			awful.client.focus.byidx(1)
-			if client.focus then client.focus:raise() end
-		end),
+    awful.key({ modkey      }, "n",
+        function ()
+            awful.client.focus.byidx(1)
+            if client.focus then client.focus:raise() end
+        end),
 
     -- Alt+Shift+Tab and Win+H cycles to prev window
-	awful.key({ altkey, "Shift"	}, "Tab",
-		function ()
-			awful.client.focus.byidx(1)
-			if client.focus then
+    awful.key({ altkey, "Shift" }, "Tab",
+        function ()
+            awful.client.focus.byidx(1)
+            if client.focus then
                 client.focus.minimized = false
                 client.focus:raise()
             end
-		end),
+        end),
 
-	awful.key({ modkey		}, "h",
-		function ()
-			awful.client.focus.byidx(1)
-			if client.focus then
+    awful.key({ modkey      }, "h",
+        function ()
+            awful.client.focus.byidx(1)
+            if client.focus then
                 client.focus.minimized = false
                 client.focus:raise()
             end
-		end),
+        end),
 
 
     -- Layout manipulation
-    awful.key({ modkey, "Control" }, " ", function () awful.layout.inc(layouts, 1)	end),
-    awful.key({ modkey, "Control", "Shift" }, " ", function () awful.layout.inc(layouts, -1)	end),
+    awful.key({ modkey, "Control" }, " ", function () awful.layout.inc(layouts, 1)  end),
+    awful.key({ modkey, "Control", "Shift" }, " ", function () awful.layout.inc(layouts, -1)    end),
 
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto)
 )
 
 clientkeys = awful.util.table.join(
-	awful.key({ modkey  		}, "w",		function (c) c:kill() end),
+    awful.key({ modkey          }, "w",     function (c) c:kill() end),
 
     -- Move window to next and prev screen
-	awful.key({ modkey, "Shift"  }, "Right",      awful.client.movetoscreen ),
-	awful.key({ modkey, "Shift"  }, "Left",      awful.client.movetoscreen )
+    awful.key({ modkey, "Shift"  }, "Right",      awful.client.movetoscreen ),
+    awful.key({ modkey, "Shift"  }, "Left",      awful.client.movetoscreen )
 )
 
 -- Compute the maximum number of digit we need, limited to 9
