@@ -96,6 +96,7 @@ globalkeys = awful.util.table.join(
 
     -- Tag movement
     awful.key({ modkey      }, "Tab",       function () awful.screen.focus_relative(1) end),
+    awful.key({ modkey      }, "n",         function () awful.screen.focus_relative(1) end),
     awful.key({ altkey      }, "Escape",        awful.tag.history.restore),
     awful.key({ modkey      }, "Left",      awful.tag.viewprev),
     awful.key({ modkey      }, "Right",     awful.tag.viewnext),
@@ -137,12 +138,6 @@ globalkeys = awful.util.table.join(
 
     -- Alt+Tab and Win+N cycles to the next window
     awful.key({ altkey      }, "Tab",
-        function ()
-            awful.client.focus.byidx(1)
-            if client.focus then client.focus:raise() end
-        end),
-
-    awful.key({ modkey      }, "n",
         function ()
             awful.client.focus.byidx(1)
             if client.focus then client.focus:raise() end
