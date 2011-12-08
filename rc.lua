@@ -72,7 +72,7 @@ wibox = {}
 for s = 1, screen.count() do
     wibox[s] = awful.wibox({ position = "bottom", screen = s })
     wibox[s].widgets = {
-        systray,
+        s == 1 and systray or nil,
         textclock,
         spacer,
         textdate,
