@@ -65,7 +65,7 @@ systray = widget({ type = "systray" })
 
 -- Create a battery icon
 textbat = widget({ type = "textbox" })
-vicious.register(textbat, vicious.widgets.bat, " $2% ", 60, "BAT0")
+vicious.register(textbat, vicious.widgets.bat, " $2% ", 60, "BAT1")
 
 -- Create a wibox for each screen and add it
 wibox = {}
@@ -106,6 +106,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey      }, "Print",     function () awful.util.spawn("scrot -s") end),
     awful.key({ modkey      }, "Return",    function () awful.util.spawn(terminal) end),
     awful.key({ modkey      }, "l",         function () awful.util.spawn("xscreensaver-command -lock") end),
+
+    -- Touchpad on/off
+    awful.key({ },             "XF86TouchpadToggle", function () awful.util.spawn("touchpad") end),
+
+    -- Suspend to RAM
+    awful.key({ },             "XF86PowerOff", function () awful.util.spawn("gotosleep") end),
 
     -- Awesome
     awful.key({ modkey, "Shift"     }, "r",         awesome.restart),
