@@ -173,6 +173,9 @@ globalkeys = awful.util.table.join(
 clientkeys = awful.util.table.join(
     awful.key({ modkey          }, "w",     function (c) c:kill() end),
 
+    -- Toggle floating client
+    awful.key({ modkey      }, "f", function (c) awful.client.floating.toggle(c) end),
+
     -- Move window to next and prev screen
     awful.key({ modkey, "Shift"  }, "Right",      awful.client.movetoscreen ),
     awful.key({ modkey, "Shift"  }, "Left",      awful.client.movetoscreen )
