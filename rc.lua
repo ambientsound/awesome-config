@@ -103,7 +103,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({             }, "Print",     function () awful.util.spawn("shot") end),
-    awful.key({ modkey      }, "Print",     function () awful.util.spawn("scrot -s") end),
+    awful.key({ altkey      }, "Print",     function () awful.util.spawn("shot -s") end),
     awful.key({ modkey      }, "Return",    function () awful.util.spawn(terminal) end),
     awful.key({ modkey      }, "l",         function () awful.util.spawn("xscreensaver-command -lock") end),
 
