@@ -92,7 +92,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control"   }, "KP_Subtract",   function () awful.util.spawn("eject -t") end),
 
     -- dmenu
-    awful.key({ "Control"       }, " ",         function () awful.util.spawn("dmenu_run") end),
+    awful.key({ "Mod4"       }, " ",         function () awful.util.spawn("dmenu_run") end),
 
     -- Tag movement
     awful.key({ modkey      }, "Tab",       function () awful.screen.focus_relative(1) end),
