@@ -102,8 +102,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey      }, "Right",     awful.tag.viewnext),
 
     -- Standard program
-    awful.key({             }, "Print",     function () awful.util.spawn("scrot") end),
-    awful.key({ modkey      }, "Print",     function () awful.util.spawn("scrot -s") end),
+    awful.key({             }, "Print",     function () awful.util.spawn("shot") end),
+    awful.key({ altkey      }, "Print",     function () awful.util.spawn("shot -s") end),
     awful.key({ modkey      }, "Return",    function () awful.util.spawn(terminal) end),
     awful.key({ modkey      }, "l",         function () awful.util.spawn("xscreensaver-command -lock") end),
 
@@ -178,6 +178,9 @@ globalkeys = awful.util.table.join(
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey          }, "w",     function (c) c:kill() end),
+
+    -- Toggle floating client
+    awful.key({ modkey      }, "f", function (c) awful.client.floating.toggle(c) end),
 
     -- Move window to next and prev screen
     awful.key({ modkey, "Shift"  }, "Right",      awful.client.movetoscreen ),
