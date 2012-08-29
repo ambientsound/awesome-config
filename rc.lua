@@ -235,6 +235,7 @@ root.keys(globalkeys)
 -- {{{ Rules
 awful.rules.rules = {
     -- All clients will match this rule.
+    { rule = { class = "Ardour" }, properties = { floating = true } },
     { rule = { },
       properties = { border_width = 0,
                      focus = true,
