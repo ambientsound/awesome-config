@@ -92,14 +92,16 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control"   }, "KP_Subtract",   function () awful.util.spawn("eject -t") end),
 
     -- dmenu
-    awful.key({ "Mod4"       }, " ",         function () awful.util.spawn("dmenu_run") end),
+    awful.key({ modkey      }, " ",         function () awful.util.spawn("dmenu_run") end),
 
     -- Tag movement
     awful.key({ modkey      }, "Tab",       function () awful.screen.focus_relative(1) end),
     awful.key({ modkey      }, "n",         function () awful.screen.focus_relative(1) end),
     awful.key({ altkey      }, "Escape",        awful.tag.history.restore),
-    awful.key({ modkey      }, "Left",      awful.tag.viewprev),
-    awful.key({ modkey      }, "Right",     awful.tag.viewnext),
+
+    -- Screen movement
+    awful.key({ modkey      }, "Left",      function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey      }, "Right",     function () awful.screen.focus_relative(1) end),
 
     -- Standard program
     awful.key({             }, "Print",     function () awful.util.spawn("shot") end),
@@ -180,11 +182,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey          }, "w",     function (c) c:kill() end),
 
     -- Toggle floating client
-    awful.key({ modkey      }, "f", function (c) awful.client.floating.toggle(c) end),
-
-    -- Move window to next and prev screen
-    awful.key({ modkey, "Shift"  }, "Right",      awful.client.movetoscreen ),
-    awful.key({ modkey, "Shift"  }, "Left",      awful.client.movetoscreen )
+    awful.key({ modkey      }, "f", function (c) awful.client.floating.toggle(c) end)
 )
 
 -- Compute the maximum number of digit we need, limited to 9
